@@ -9,6 +9,7 @@ import time     # usado para el sleep del while final
 import json     # usado para manejar los json de los servicios expuestos/consumidos
 import requests # 
 
+# https://github.com/prometheus/prometheus/wiki/Default-port-allocations
 http_port=8000  # Puerto que expone el exporter
 # Endpoints donde consulto data en formato json
 endpoints=["http://192.168.0.22:81/data",
