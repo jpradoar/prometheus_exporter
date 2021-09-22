@@ -50,6 +50,17 @@ services:
     networks:
       - overlay 
 #--------------------------------------------------------------------
+  prom-federation:
+    image: prom/prometheus
+    volumes:
+      - './prometheus/prometheus-federation.yml:/etc/prometheus/prometheus.yml' 
+    ports:
+     - 9091:9090
+    depends_on:
+      - custom-prom-exporter     
+    networks:
+      - overlay       
+#--------------------------------------------------------------------
   grafana:
     build: ./grafana
     volumes:
@@ -63,6 +74,5 @@ services:
     networks:
       - overlay 
 #--------------------------------------------------------------------
-
 networks:
   overlay:      
