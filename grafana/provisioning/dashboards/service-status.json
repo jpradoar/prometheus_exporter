@@ -30,10 +30,95 @@
       "cacheTimeout": null,
       "datasource": null,
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 24,
         "x": 0,
         "y": 0
+      },
+      "id": 8,
+      "interval": null,
+      "links": [],
+      "targets": [
+        {
+          "$$hashKey": "object:66",
+          "aggregation": "Last",
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "Never",
+          "exemplar": true,
+          "expr": "sum(custom_counter{name=~\".*A.*status-.*\"})",
+          "interval": "",
+          "legendFormat": "GENERAL STATUS SERVICE A",
+          "refId": "A",
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "$$hashKey": "object:66",
+          "aggregation": "Last",
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "Never",
+          "exemplar": true,
+          "expr": "sum(custom_counter{name=~\".*B.*status-.*\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "GENERAL STATUS SERVICE B",
+          "refId": "B",
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        },
+        {
+          "$$hashKey": "object:66",
+          "aggregation": "Last",
+          "decimals": 2,
+          "displayAliasType": "Warning / Critical",
+          "displayType": "Regular",
+          "displayValueWithAlias": "Never",
+          "exemplar": true,
+          "expr": "sum(custom_counter{name=~\".*C.*status-.*\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "GENERAL STATUS SERVICE C",
+          "refId": "C",
+          "units": "none",
+          "valueHandler": "Number Threshold"
+        }
+      ],
+      "title": "GENERAL STATUS SERVICE",
+      "trafficLightSettings": {
+        "digits": 1,
+        "fontColor": "#ccccdc",
+        "fontSize": "15px",
+        "greenThreshold": 1,
+        "invertScale": true,
+        "lightsPerLine": null,
+        "linkTargetBlank": false,
+        "linkTooltip": "",
+        "linkUrl": "",
+        "max": 10,
+        "redThreshold": 3,
+        "renderLink": false,
+        "showTrend": false,
+        "showValue": true,
+        "sortLights": true,
+        "spreadControls": true,
+        "units": "",
+        "width": 40
+      },
+      "type": "snuids-trafficlights-panel"
+    },
+    {
+      "bgColor": null,
+      "cacheTimeout": null,
+      "datasource": null,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 6
       },
       "id": 3,
       "interval": null,
@@ -55,7 +140,7 @@
           "valueHandler": "Number Threshold"
         }
       ],
-      "title": "Status Lights",
+      "title": "DETAILED STATUS SERVICE ",
       "trafficLightSettings": {
         "digits": 1,
         "fontColor": "#ccccdc",
@@ -72,7 +157,7 @@
         "showTrend": false,
         "showValue": false,
         "sortLights": true,
-        "spreadControls": false,
+        "spreadControls": true,
         "units": "",
         "width": 40
       },
@@ -91,7 +176,7 @@
         "h": 9,
         "w": 4,
         "x": 0,
-        "y": 8
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 7,
@@ -191,7 +276,7 @@
         "h": 9,
         "w": 5,
         "x": 4,
-        "y": 8
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 6,
@@ -318,7 +403,7 @@
         "h": 9,
         "w": 15,
         "x": 9,
-        "y": 8
+        "y": 12
       },
       "id": 4,
       "interval": null,
