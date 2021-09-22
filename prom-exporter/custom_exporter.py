@@ -12,9 +12,9 @@ import requests #
 # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
 http_port=8000  # Puerto que expone el exporter
 # Endpoints donde consulto data en formato json
-endpoints=["http://192.168.0.22:81/data",
-           "http://192.168.0.22:82/data",
-           "http://192.168.0.22:83/data"]
+endpoints=["http://192.168.0.22:81/metrics",
+           "http://192.168.0.22:82/metrics",
+           "http://192.168.0.22:83/metrics"]
 
 
 class CustomCollector(object):

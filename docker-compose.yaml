@@ -1,0 +1,68 @@
+version: '3'
+services:
+#--------------------------------------------------------------------  
+  custom-prom-exporter:
+    build: ./prom-exporter
+    ports:
+     - 8000:8000
+    depends_on:
+      - nginx01
+      - nginx02
+      - nginx03
+    networks:
+      - overlay    
+#--------------------------------------------------------------------
+  nginx01:
+    image: nginx
+    volumes:
+      - './code/data01:/usr/share/nginx/html/metrics'
+    ports:
+     - 81:80      
+    networks:
+      - overlay       
+#--------------------------------------------------------------------
+  nginx02:
+    image: nginx
+    volumes:
+      - './code/data02:/usr/share/nginx/html/metrics'
+    ports:
+     - 82:80       
+    networks:
+      - overlay       
+#--------------------------------------------------------------------
+  nginx03:
+    image: nginx
+    volumes:
+      - './code/data03:/usr/share/nginx/html/metrics' 
+    ports:
+     - 83:80       
+    networks:
+      - overlay               
+#--------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - './prometheus/prometheus.yml:/etc/prometheus/prometheus.yml' 
+    ports:
+     - 9090:9090
+    depends_on:
+      - custom-prom-exporter     
+    networks:
+      - overlay 
+#--------------------------------------------------------------------
+  grafana:
+    build: ./grafana
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/ 
+    ports:
+     - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_GRAFANA_PLUGIN_LIST="snuids-trafficlights-panel,grafana-piechart-panel,jdbranham-diagram-panel,vonage-status-panel"
+    networks:
+      - overlay 
+#--------------------------------------------------------------------
+
+networks:
+  overlay:      
