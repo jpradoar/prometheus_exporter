@@ -36,4 +36,4 @@ if __name__ == '__main__':
     start_http_server(http_port)            # Inicio un webserver con el puerto 8000 
     REGISTRY.register(CustomCollector())    # Genero un registro de OpenMetrics
     while True:                             # Genero un bucle infinito para correr el programa
-        time.sleep(1)                       # Espero n segundos por cada scraping
+        time.sleep(1)                       # Dejo un sleep para que no muera el proceso
