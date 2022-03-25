@@ -15,7 +15,7 @@ http_port=8000  # Puerto que expone el exporter
 endpoints=["http://192.168.0.22:81/metrics",
            "http://192.168.0.22:82/metrics",
            "http://192.168.0.22:83/metrics"]
-
+# In the future I will change it for a scraping service to obtain dynamically all endpoints. with a service-account
 
 class CustomCollector(object):
     def collect(self):
